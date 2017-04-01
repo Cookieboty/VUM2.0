@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <page-header>
-      <header-link :left="true" :edge="true" ><icon icon="back" onclick="window.history.go(-1)"></icon>Back</header-link>
+      <header-link :left="true" :edge="true" onclick="window.history.go(-1)"><icon icon="back"></icon>Back</header-link>
       <header-link>About</header-link>
       <header-title>VUM2.0</header-title>
     </page-header>

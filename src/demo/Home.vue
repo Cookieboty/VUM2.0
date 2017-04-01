@@ -2,7 +2,7 @@
   <div>
     <page-header>
       <header-link>About</header-link>
-      <header-title>VUM</header-title>
+      <header-title>VUM2.0</header-title>
     </page-header>
     <Contented>
       <header class='demos-header'>

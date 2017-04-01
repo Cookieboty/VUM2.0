@@ -1,20 +1,20 @@
 <template>
   <div class="page">
     <page-footer>
-      <footer-item v-bind:class="{ 'active' : currentView === 'home' }" v-on:click="changeView('home')">
+      <footer-item :class="{ 'active' : currentView === 'home' }" @click.native="changeView('home')">
         <span class="icon demo-icon-home"></span>
         <label>Home</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'search' }" v-on:click="changeView('search')">
+      <footer-item :class="{ 'active' : currentView === 'search' }" @click.native="changeView('search')">
         <span class="icon demo-icon-search"></span>
         <label>Search</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'noti' }" v-on:click="changeView('noti')">
+      <footer-item :class="{ 'active' : currentView === 'noti' }" @click.native="changeView('noti')">
         <span class="icon demo-icon-noti"></span>
         <span class="badge">2</span>
         <label>Noti</label>
       </footer-item>
-      <footer-item v-bind:class="{ 'active' : currentView === 'about' }" v-on:click="changeView('about')">
+      <footer-item :class="{ 'active' : currentView === 'about' }" @click.native="changeView('about')">
         <span class="icon demo-icon-me"></span>
         <label>About</label>
       </footer-item>
@@ -46,6 +46,7 @@ export default {
   },
   methods: {
     changeView (view) {
+      console.log(view)
       this.currentView = view
     }
   }
