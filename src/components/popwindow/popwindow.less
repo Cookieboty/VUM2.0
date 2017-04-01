@@ -1,0 +1,41 @@
+@import '../variables.less';
+
+.popwindow-modal {
+  width: 80%;
+  margin-left: 10%;
+  top: 50%;
+  height: 80%;
+  position: absolute;
+  z-index: 100;
+  border-radius: 0;
+  
+  color: @color-text;
+  transition-duration: .3s;
+  background: #EFEFF4;
+
+  transition-property: transform, opacity;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: none;
+
+  &.popwindow-modal-transition {
+    opacity: 1;
+    display: block;
+    transform: translate3d(0, -50%, 0) scale(1);
+  }
+
+  &.popwindow-modal-enter,
+  &.popwindow-modal-leave {
+    transform: scale(.6);
+    transform: translate3d(0, -50%, 0) scale(.6);
+    opacity: 0;
+  }
+
+  .modal-content {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+}

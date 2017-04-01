@@ -1,0 +1,178 @@
+@import '../variables.less';
+@import './variables.less';
+@import '../mixins.less';
+
+.button {
+  color: white;
+  border: 0;
+  background-color: @color-primary;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  border-radius: 0.25rem;
+  line-height: @btn-height;
+  box-sizing: border-box;
+  appearance: none;
+  padding: 0 0.8rem;
+  margin: 0;
+  height: @btn-height;
+  white-space: nowrap;
+  position: relative;
+  text-overflow:ellipsis;
+  font-size: 0.8rem;
+  cursor: pointer;
+  input[type="submit"]&, input[type="button"]&{
+    width: 100%;
+  }
+
+  &:active {
+    background-color: @color-primary-active;
+  }
+  &.button-round,
+  .button-round & {
+    &, &:after {
+      border-radius: (@btn-height - 0.1rem);
+    }
+
+    &.button-large:after {
+      border-radius: (@btn-large-height - 0.1rem);
+    }
+  }
+  &.active {
+    &, &:active {
+      background-color: @color-primary-active;
+    }
+  }
+  &.button-large,
+  .button-large & {
+    font-size: 0.9rem;
+    height: @btn-large-height;
+    line-height: @btn-large-height;
+  }
+  &.button-small,
+  .button-small & {
+    font-size: 0.7rem;
+    display: inline-block;
+    height: @btn-small-height;
+    line-height: @btn-small-height;
+  }
+  i.icon {
+    &:first-child {
+      margin-right: 0.5rem;
+    }
+    &:last-child {
+      margin-left: 0.5rem;
+    }
+    &:first-child:last-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.button-variant(@color, @color-active) {
+  background: @color;
+  &:active {
+    background: @color-active;
+  }
+}
+
+.button-light {
+  .button-variant(#f7f7f7, #dedede);
+  .hairline-border(rgba(0,0,0,.2), .25rem);
+  color: @color-text-secondary;
+}
+.button-dark {
+  .button-variant(#6e727b, @color-primary-active);
+  color: @color-text-secondary;
+}
+.button-success {
+  .button-variant(@color-success, @color-success-active);
+}
+.button-danger {
+  .button-variant(@color-danger, @color-danger-active);
+}
+.button-warning {
+  .button-variant(@color-warning, @color-warning-active);
+}
+
+.button {
+  &,
+  &.button-light,
+  &.button-primary,
+  &.button-success,
+  &.button-danger,
+  &.button-warning {
+    &.disabled {
+      .hairline-border-remove();
+      .button-variant(#c8c9cb, #c8c9cb);
+      color: white;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+.bordered-variant(@color, @color-active) {
+  color: @color;
+  &:after {
+    border-color: @color;
+  }
+  &:active {
+    color: white;
+    background-color: @color-active;
+    &:after {
+      border-color: @color-active;
+    }
+  }
+}
+
+.button.button-bordered,
+.button-bordered .button {
+  background-color: transparent;
+  .hairline-border(@color-primary, .25rem);
+
+  .bordered-variant(@color-primary, @color-primary-active);
+
+  .button-round &,
+  &.button-round {
+    &:after {
+      border-radius: @btn-height;
+    }
+    &.button-large,
+    .button-large & {
+      &:after {
+        border-radius: @btn-large-height;
+      }
+    }
+  }
+
+  &.button-success {
+    .bordered-variant(@color-success, @color-success-active);
+  }
+
+  &.button-warning {
+    .bordered-variant(@color-warning, @color-warning-active);
+  }
+
+  &.button-danger {
+    .bordered-variant(@color-danger, @color-danger-active);
+  }
+
+  &.disabled,
+  &[disabled] {
+    color: #c8c9cb;
+    background: transparent;
+    cursor: not-allowed;
+    &:after {
+      border-color: #c8c8cb;
+    }
+    &:active {
+      background-color: transparent;
+      color: #c8c9cb;
+      &:after {
+        border-color: #c8c8cb;
+      }
+    }
+  }
+}
