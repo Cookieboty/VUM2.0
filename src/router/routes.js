@@ -1,8 +1,12 @@
-// 引用模板
+// Components
 const Index = r => require.ensure([], () => r(require('../demo/Index')), 'Index')
 const Actions = r => require.ensure([], () => r(require('../demo/Actions')), 'Actions')
 const Scroll = r => require.ensure([], () => r(require('../demo/scroll')), 'Scroll')
-
+const Modal = r => require.ensure([], () => r(require('../demo/Modal')), 'Modal')
+const Preloader = r => require.ensure([], () => r(require('../demo/Preloader')), 'Preloader')
+const Toast = r => require.ensure([], () => r(require('../demo/Toast')), 'Toast')
+const Tab = r => require.ensure([], () => r(require('../demo/Tab')), 'Tab')
+// Css
 const Page = r => require.ensure([], () => r(require('../demo/page')), 'Page')
 const Buttons = r => require.ensure([], () => r(require('../demo/Buttons')), 'Buttons')
 const Column = r => require.ensure([], () => r(require('../demo/Column')), 'Column')
@@ -80,5 +84,25 @@ export default [
     path: '/actions',
     name: 'Actions',
     component: Actions
+  },
+  {
+    path: '/modal',
+    name: 'Modal',
+    component: Modal
+  },
+  {
+    path: '/preloader',
+    name: 'Preloader',
+    component: Preloader
+  },
+  {
+    path: '/toast',
+    name: 'Toast',
+    component: Toast
+  },
+  {
+    path: '/tab',
+    name: 'Tab',
+    component: Tab
   }
 ]

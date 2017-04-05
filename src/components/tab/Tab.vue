@@ -8,10 +8,11 @@
       'button-large': size === 'large'
       }">
       <m-button 
-         v-for="item in items" 
-         :active="$index === active"
-         v-on:click="onClick($index)"
-         >{{item.title}}</m-button>
+         v-for="(item, index) in items" 
+         :showActive="index === showActive"
+         :key="index"
+         @click.native="onClick(index)"
+         >{{item.title}}{{showActive}}</m-button>
     </div>
     <div class="tabs">
       <slot></slot>
@@ -24,7 +25,7 @@ import { Button } from '../buttons'
 
 export default {
   props: {
-    active: {
+    value: {
       type: Number,
       default: 0
     },
@@ -42,14 +43,26 @@ export default {
   },
   data () {
     return {
-      items: []
+      items: [],
+      showActive: 0
+    }
+  },
+  created () {
+    if (this.value) {
+      this.showActive = this.value
     }
   },
   methods: {
     onClick (active) {
-      this.active = active
-      this.$children[active].show = true
-      this.$broadcast('change', active)
+      this.showActive = active
+    }
+  },
+  watch: {
+    value (val) {
+      this.showActive = val
+    },
+    showActive (val) {
+      this.$emit('input', val)
     }
   }
 }

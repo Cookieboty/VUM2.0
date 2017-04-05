@@ -17,18 +17,19 @@
   top: 50%;
   text-align: center;
   border-radius: 0.35rem;
-  opacity: 0;
-  transform: translate3d(0,0,0) scale(1.185);
+  opacity: 1;
+  transform: translate3d(0,-50%,0) scale(1);
   transition-property: transform, opacity;
   transition-duration: @modalDuration;
   color: @color-text;
 
-  &.modal-transition {
+  &.modal-enter-active,
+  &.modal-leave{
     opacity: 1;
     transform: translate3d(0,-50%,0) scale(1);
   }
   &.modal-enter,
-  &.modal-leave {
+  &.modal-leave-active {
     opacity: 0;
     z-index: 11000-1;
     transform: translate3d(0,-50%,0) scale(0.815);

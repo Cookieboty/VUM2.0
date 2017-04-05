@@ -1,23 +1,27 @@
 <template>
-  <div class="overlay" :class="reoverlay" transition="overlay" v-if="show" @click="click && click()">
-    <div class="inner" v-bind:style="{ opacity: opacity }"></div>
-  </div>
+  <transition 
+    v-on:enter="enter"
+    v-on:leave="leave"
+    >
+    <div class="overlay" v-show="showValue" :class="reoverlay" @click="closeOverlay">
+      <div class="inner" v-bind:style="{opacity: opacity }"></div>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false,
-      required: true,
-      twoWay: true
-    },
-    click: {
-      type: Function,
-      default: undefined
+      required: true
     },
     transparent: {
+      type: Boolean,
+      default: false
+    },
+    overlayClose: {
       type: Boolean,
       default: false
     },
@@ -28,7 +32,36 @@ export default {
   },
   data () {
     return {
-      reoverlay: this.transparent ? 'transparent' : ''
+      reoverlay: this.transparent ? 'transparent' : '',
+      showValue: false
+    }
+  },
+  created () {
+    this.showValue = this.show
+    if (this.value) {
+      this.showValue = this.value
+    }
+  },
+  methods: {
+    enter (el, done) {
+      el.style.opacity = 1
+      el.style.display = 'block'
+      done()
+    },
+    leave (el, done) {
+      el.style.opacity = 0
+      el.style.display = 'none'
+    },
+    closeOverlay () {
+      if (this.overlayClose) this.showValue = false
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
     }
   }
 }

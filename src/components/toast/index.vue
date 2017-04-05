@@ -1,8 +1,10 @@
 <template>
-  <overlay :show.sync="show" :transparent="true" v-if="overlay"></overlay>
-  <div class="toast-modal" v-if="show" transition="toast-modal">
-    <div class="icon-wrap"><i class="icon icon-{{type}}"></i></div>
-    <div class="text">{{text}}</div>
+  <div>
+    <overlay :value="showValue" :transparent="true"></overlay>
+    <div class="toast-modal" v-if="showValue" transition="toast-modal">
+      <div class="icon-wrap"><i class="icon" :class="iconType"></i></div>
+      <div class="text">{{text}}</div>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
     Overlay
   },
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false,
       twoWay: true,
@@ -36,12 +38,27 @@ export default {
       default: true
     }
   },
+  data () {
+    return {
+      showValue: false,
+      iconType: 'icon-' + this.type
+    }
+  },
+  created () {
+    if (this.value) {
+      this.showValue = this.value
+    }
+  },
   watch: {
-    show (val, oldVal) {
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val, oldVal) {
       if (val) {
         const self = this
         setTimeout(function () {
-          self.show = false
+          self.showValue = false
+          self.$emit('input', val)
         }, this.duration)
       }
     }

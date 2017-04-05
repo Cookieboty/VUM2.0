@@ -1,5 +1,5 @@
 <template>
-  <modal :show.sync='show'>
+  <modal v-model='value'>
     <div slot="title">{{title}}</div>
     <div slot="content">
       {{content}}
@@ -19,7 +19,7 @@ import Modal from './Modal'
 
 export default {
   props: {
-    show: {
+    value: {
       type: Boolean,
       required: true,
       default: false
