@@ -153,31 +153,37 @@
             </p>
           </a>
         </router-link>-->
-        <!--<a v-link="{ path: 'scroll' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/scroll.png" alt="">
-          </div>
-          <p class="grid_label">
-            Scroll
-          </p>
-        </a>
-        <a v-link="{ path: 'popup' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/window.png" alt="">
-          </div>
-          <p class="grid_label">
-            Popup
-          </p>
-        </a>
-        <a v-link="{ path: 'popwindow' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/window.png" alt="">
-          </div>
-          <p class="grid_label">
-            PopWindow
-          </p>
-        </a>
-        <a v-link="{ path: 'actions' }" class="grid">
+        <router-link :to="{ path: 'scroll'}">
+          <a class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/home/scroll.png" alt="">
+            </div>
+            <p class="grid_label">
+              Scroll
+            </p>
+          </a>
+        </router-link>
+        <router-link :to="{ path: 'popup'}">
+          <a class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/home/window.png" alt="">
+            </div>
+            <p class="grid_label">
+              Popup
+            </p>
+          </a>
+        </router-link>
+        <router-link :to="{ path: 'popwindow'}">
+          <a class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/home/window.png" alt="">
+            </div>
+            <p class="grid_label">
+              PopWindow
+            </p>
+          </a>
+        </router-link>
+        <!--<a v-link="{ path: 'actions' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/home/menu.png" alt="">
           </div>

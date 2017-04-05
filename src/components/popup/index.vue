@@ -1,12 +1,12 @@
 <template>
   <div>
-    <overlay :show.sync="show" :click="close"></overlay>
+    <overlay v-model="showValue" :overlay-close="overlayClose"></overlay>
     <div transition="popup-modal"
-         v-if="show"
+         v-if="showValue"
          class="popup-modal" :class="repopup">
       <page-header v-if="showTitleBar">
         <header-title>{{title}}</header-title>
-        <header-link @click="close()">{{closeButtonText}}</header-link>
+        <header-link @click.native="close()">{{closeButtonText}}</header-link>
       </page-header>
       <div class="modal-content">
         <slot></slot>
@@ -27,11 +27,10 @@ export default {
     'header-title': Title
   },
   props: {
-    show: {
+    value: {
       type: Boolean,
-      required: true,
       default: false,
-      twoWay: true
+      required: true
     },
     title: {
       type: String,
@@ -52,6 +51,10 @@ export default {
     className: {
       type: String,
       default: ''
+    },
+    overlayClose: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -59,12 +62,26 @@ export default {
       repopup: [
         this.className,
         this.full ? 'full' : ''
-      ]
+      ],
+      showValue: false
+    }
+  },
+  created () {
+    if (this.value) {
+      this.showValue = this.value
     }
   },
   methods: {
     close () {
-      this.show = false
+      this.showValue = false
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
     }
   }
 }

@@ -1,11 +1,14 @@
 <template>
-  <overlay :show.sync="show" :click="close"></overlay>
-  <div transition="popwindow-modal"
-       v-if="show"
-       class="popwindow-modal {{className}} {{full ? 'full' : ''}}">
-    <div class="modal-content">
-      <slot></slot>
-    </div>
+  <div>
+    <overlay v-model='showValue' :overlay-close="true"></overlay>
+    <transition name="popwindow-modal">
+      <div v-if="showValue"
+           class="popwindow-modal" :class="popwindowClass">
+        <div class="modal-content">
+          <slot></slot>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -16,7 +19,7 @@ export default {
     Overlay
   },
   props: {
-    show: {
+    value: {
       type: Boolean,
       required: true,
       default: false,
@@ -27,9 +30,32 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      popwindowClass: [
+        this.className,
+        this.full ? 'full' : ''
+      ],
+      showValue: false
+    }
+  },
+  created () {
+    console.log(this.value)
+    if (this.value) {
+      this.showValue = this.value
+    }
+  },
   methods: {
     close () {
       this.show = false
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
     }
   }
 }

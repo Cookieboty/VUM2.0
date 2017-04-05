@@ -1,11 +1,13 @@
 // Components
 const Index = r => require.ensure([], () => r(require('../demo/Index')), 'Index')
 const Actions = r => require.ensure([], () => r(require('../demo/Actions')), 'Actions')
-const Scroll = r => require.ensure([], () => r(require('../demo/scroll')), 'Scroll')
 const Modal = r => require.ensure([], () => r(require('../demo/Modal')), 'Modal')
 const Preloader = r => require.ensure([], () => r(require('../demo/Preloader')), 'Preloader')
 const Toast = r => require.ensure([], () => r(require('../demo/Toast')), 'Toast')
 const Tab = r => require.ensure([], () => r(require('../demo/Tab')), 'Tab')
+const Scroll = r => require.ensure([], () => r(require('../demo/Scroll')), 'Scroll')
+const Popup = r => require.ensure([], () => r(require('../demo/Popup')), 'Popup')
+const Popwindow = r => require.ensure([], () => r(require('../demo/Popwindow')), 'Popwindow')
 // Css
 const Page = r => require.ensure([], () => r(require('../demo/page')), 'Page')
 const Buttons = r => require.ensure([], () => r(require('../demo/Buttons')), 'Buttons')
@@ -76,11 +78,6 @@ export default [
     component: Stars
   },
   {
-    path: '/scroll',
-    name: 'Scroll',
-    component: Scroll
-  },
-  {
     path: '/actions',
     name: 'Actions',
     component: Actions
@@ -104,5 +101,20 @@ export default [
     path: '/tab',
     name: 'Tab',
     component: Tab
+  },
+  {
+    path: '/scroll',
+    name: 'Scroll',
+    component: Scroll
+  },
+  {
+    path: '/popup',
+    name: 'Popup',
+    component: Popup
+  },
+  {
+    path: '/popwindow',
+    name: 'Popwindow',
+    component: Popwindow
   }
 ]

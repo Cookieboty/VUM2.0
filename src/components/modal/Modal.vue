@@ -1,9 +1,7 @@
 <template>
   <div>
     <overlay v-model='showValue' :overlay-close="overlayClose"></overlay>
-    <transition 
-      name="modal"
-      >
+    <transition name="modal" >
       <div class="modal" v-if="showValue" >
         <div class="modal-inner">
           <div class="modal-title">

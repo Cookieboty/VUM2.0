@@ -1,20 +1,20 @@
 <template>
   <div class="page">
     <simple-header title="Popup" :back-link="true"></simple-header>
-    <content>
+    <Contented>
       <div class='demos-content-padded'>
-        <p><m-button v-on:click="show = true">Show Popup</m-button></p>
-        <p><m-button v-on:click="showFull = true">Show Full Screen Popup</m-button></p>
-        <p><m-button v-on:click="showCustom = true">Show Custom Popup</m-button></p>
+        <p><m-button @click.native="show = true">Show Popup</m-button></p>
+        <p><m-button @click.native="showFull = true">Show Full Screen Popup</m-button></p>
+        <p><m-button @click.native="showCustom = true">Show Custom Popup</m-button></p>
       </div>
-    </content>
-    <popup :show.sync="show">
+    </Contented>
+    <popup v-model="show" :overlay-close='true'>
       <h2 class="demos-sub-title">Popup Content</h2>
       <div class="content-padded">
         <p>You can put any content here</p>
       </div>
     </popup>
-    <popup :show.sync="showFull" :full="true">
+    <popup v-model="showFull" :full="true">
       <h2 class="demos-sub-title">Full Page Popup</h2>
       <div class="content-padded">
         <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
@@ -33,7 +33,7 @@
         <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
       </div>
     </popup>
-    <popup :show.sync="showCustom" title="Custom With Grids">
+    <popup v-model="showCustom" title="Custom With Grids">
       <div class="grids">
         <a href="javascript:;" class="grid">
           <div class="grid_icon">
@@ -67,13 +67,13 @@
 <script>
 import { SimpleHeader } from '../components/header'
 import { Button } from '../components/buttons'
-import Content from '../components/content'
+import Contented from '../components/content'
 import Popup from '../components/popup'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    Contented,
     Popup,
     'm-button': Button
   },

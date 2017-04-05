@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Scroll" :back-link="true"></simple-header>
-    <Content>
+    <Contented>
       <scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
         <div class='content-padded' id="list">
           <h2>current time: {{time}}</h2>
@@ -24,19 +24,19 @@
           <p>Write some HTML, grab some JSON, create a Vue instance, that's it.</p>
         </div>
       </scroll>
-    </Content>
+    </Contented>
   </div>
 </template>
 
 <script>
 import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 import Scroll from '../components/scroll'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    Contented,
     Scroll
   },
   data () {
@@ -53,7 +53,6 @@ export default {
       }, 2000)
     },
     onInfinite (done) {
-      console.log('infinite')
       setTimeout(function () {
         var f = document.createDocumentFragment()
         for (let i = 0; i < 10; i++) {

@@ -1,8 +1,5 @@
 <template>
-  <transition 
-    v-on:enter="enter"
-    v-on:leave="leave"
-    >
+  <transition name="overlay">
     <div class="overlay" v-show="showValue" :class="reoverlay" @click="closeOverlay">
       <div class="inner" v-bind:style="{opacity: opacity }"></div>
     </div>
@@ -43,15 +40,6 @@ export default {
     }
   },
   methods: {
-    enter (el, done) {
-      el.style.opacity = 1
-      el.style.display = 'block'
-      done()
-    },
-    leave (el, done) {
-      el.style.opacity = 0
-      el.style.display = 'none'
-    },
     closeOverlay () {
       if (this.overlayClose) this.showValue = false
     }
