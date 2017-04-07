@@ -4,9 +4,9 @@
     <second-header>
       <searchbar :input.sync="input"></searchbar>
     </second-header>
-    <Content>
+    <Contented>
       <list style="margin-top: 0;">
-        <template v-for="p in filtedList">
+        <template v-for="p in filtedList" >
           <li class="list-group-title" v-if="p.title">{{p.name}}</li>
           <list-item v-if="!p.title">
             <div class="item-media"><img src="../assets/images/avatar/1.png" width="30"></div>
@@ -16,13 +16,13 @@
           </list-item>
         </template>
       </list>
-    </Content>
+    </Contented>
   </div>
 </template>
 
 <script>
 import { SimpleHeader, SecondHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 import { List, ListItem } from '../components/list'
 import Searchbar from '../components/searchbar'
 
@@ -31,7 +31,7 @@ export default {
     SimpleHeader,
     SecondHeader,
     Searchbar,
-    Content,
+    Contented,
     List,
     ListItem
   },

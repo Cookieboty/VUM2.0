@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="List" :back-link="true"></simple-header>
-    <Content>
+    <Contented>
       <list>
         <div slot="title">Simple List</div>
         <list-item>
@@ -53,7 +53,7 @@
             <div class="item-title-row">
               <div class="item-title">Title</div>
               <div class="item-after">
-                <switch></switch>
+                <Switcher v-model="check"></Switcher>
               </div>
             </div>
           </div>
@@ -175,23 +175,28 @@
           </div>
         </list-item>
       </list>
-    </Content>
+    </Contented>
   </div>
 </template>
 
 <script>
 import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 import { List, ListItem } from '../components/list'
-import Switch from '../components/switch'
+import Switcher from '../components/switch'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    Contented,
     List,
     ListItem,
-    Switch
+    Switcher
+  },
+  data () {
+    return {
+      check: false
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <span class="icon " :class="reiocn"></span>
+  <span class="icon" :class="reiocn"></span>
 </template>
 
 <script>
@@ -13,6 +13,11 @@ export default {
   data () {
     return {
       reiocn: 'icon-' + this.icon
+    }
+  },
+  watch: {
+    icon (val) {
+      this.reiocn = 'icon-' + this.icon
     }
   }
 }

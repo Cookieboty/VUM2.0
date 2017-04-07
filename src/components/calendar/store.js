@@ -43,7 +43,6 @@ const Store = class {
   }
 
   update () {
-    const startTime = +new Date()
     this.currentMonthDates = this.genDates(this.currentMonth.year(), this.currentMonth.month())
     const nextMonth = this.currentMonth.clone().add(1, 'months')
     this.nextMonthDates = this.genDates(nextMonth.year(), nextMonth.month())
@@ -51,7 +50,6 @@ const Store = class {
     this.prevMonthDates = this.genDates(prevMonth.year(), prevMonth.month())
 
     this.updateData()
-    console.log(+new Date() - startTime)
   }
 
   // for performance: generate year dates when need
@@ -62,7 +60,6 @@ const Store = class {
     this.prevYearDates = this.genDates(prevYear.year(), prevYear.month())
     this.data.prevYearDates = this.prevYearDates
     this.data.nextYearDates = this.nextYearDates
-    console.log(1)
   }
 
   updateData () {
@@ -80,7 +77,6 @@ const Store = class {
     d.reachMin = this.reachMin()
     d.reachMaxYear = this.reachMaxYear()
     d.reachMinYear = this.reachMinYear()
-    console.log(this.data)
   }
 
   genDates (year, month) {

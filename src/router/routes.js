@@ -8,6 +8,7 @@ const Tab = r => require.ensure([], () => r(require('../demo/Tab')), 'Tab')
 const Scroll = r => require.ensure([], () => r(require('../demo/Scroll')), 'Scroll')
 const Popup = r => require.ensure([], () => r(require('../demo/Popup')), 'Popup')
 const Popwindow = r => require.ensure([], () => r(require('../demo/Popwindow')), 'Popwindow')
+const Calendar = r => require.ensure([], () => r(require('../demo/Calendar')), 'Calendar')
 // Css
 const Page = r => require.ensure([], () => r(require('../demo/page')), 'Page')
 const Buttons = r => require.ensure([], () => r(require('../demo/Buttons')), 'Buttons')
@@ -116,5 +117,10 @@ export default [
     path: '/popwindow',
     name: 'Popwindow',
     component: Popwindow
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar
   }
 ]

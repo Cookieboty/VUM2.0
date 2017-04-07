@@ -1,17 +1,16 @@
 export default {
-  bind () {
+  bind (el) {
     this._start = (e) => this.start(e)
     this._move = (e) => this.move(e)
     this._end = (e) => this.end(e)
-
     if (document.createElement('div').ontouchstart !== undefined) {
-      this.el.addEventListener('touchstart', this._start)
-      this.el.addEventListener('touchmove', this._move)
-      this.el.addEventListener('touchend', this._end)
+      el.addEventListener('touchstart', this.start(el))
+      el.addEventListener('touchmove', this.move(el))
+      el.addEventListener('touchend', this.end(el))
     } else {
-      this.el.addEventListener('mousedown', this._start)
-      this.el.addEventListener('mousemove', this._move)
-      this.el.addEventListener('mouseup', this._end)
+      el.addEventListener('mousedown', this.start(el))
+      el.addEventListener('mousemove', this.move(el))
+      el.addEventListener('mouseup', this.end(el))
     }
   },
   update (v, ov) {
@@ -20,12 +19,12 @@ export default {
     if (this.arg === 'end') this.swipeEnd = v
   },
   unbind () {
-    this.el.removeEventListener('touchstart', this._start)
-    this.el.removeEventListener('touchmove', this._move)
-    this.el.removeEventListener('touchend', this._end)
-    this.el.removeEventListener('mousedown', this._start)
-    this.el.removeEventListener('mousemove', this._move)
-    this.el.removeEventListener('mouseup', this._end)
+//  this.el.removeEventListener('touchstart', this._start)
+//  this.el.removeEventListener('touchmove', this._move)
+//  this.el.removeEventListener('touchend', this._end)
+//  this.el.removeEventListener('mousedown', this._start)
+//  this.el.removeEventListener('mousemove', this._move)
+//  this.el.removeEventListener('mouseup', this._end)
   },
   _point (e) {
     if (e.touches) {

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Columns" :back-link="true"></simple-header>
-    <Content>
+    <Contented>
       <div class="content-padded">
         <div class="row">
           <div class="col-50">50%</div>
@@ -26,19 +26,19 @@
           <div class="col-50">50%</div>
         </div>
       </div>
-    </Content>
+    </Contented>
   </div>
 </template>
 
 <script>
 import Column from '../components/column'
 import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    Contented,
     Column
   }
 }

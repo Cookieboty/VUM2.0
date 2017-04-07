@@ -1,12 +1,12 @@
 <template>
   <div class="list">
-    <div class="list-title" v-el:title v-if="showTitle">
+    <div class="list-title" ref='title' v-if="showTitle">
       <slot name="title"></slot>
     </div>
     <ul>
       <slot></slot>
     </ul>
-    <div class="list-append" v-el:append v-if="showAppend">
+    <div class="list-append" ref='append' v-if="showAppend">
       <slot name="append"></slot>
     </div>
   </div>

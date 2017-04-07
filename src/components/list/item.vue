@@ -6,7 +6,7 @@
       <i class="icon icon-form-radio" v-if="radio"></i>
       <div class="link-arrow icon icon-link" v-if="link"></div>
     </label>
-    <div class="item-inner " :class="relink" v-if="!checkbox && !radio">
+    <div class="item-inner" :class="relink" v-if="!checkbox && !radio">
       <slot></slot>
       <div class="link-arrow icon icon-link" v-if="link"></div>
     </div>
@@ -33,8 +33,8 @@ export default {
     return {
       relinks: [
         this.link ? 'item-link' : '',
-        !this.checkbox ? 'label-checkbox' : '',
-        !this.radio ? 'label-radio' : ''
+        this.checkbox ? 'label-checkbox' : '',
+        this.radio ? 'label-radio' : ''
       ],
       relink: [
         this.link ? 'item-link' : ''

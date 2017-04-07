@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <simple-header title="Calendar" :back-link="true"></simple-header>
-    <content>
-      <calendar :date.sync="date" min="1990-12-12" max="2020-12-01"></calendar>
+    <Contented>
+      <calendar v-model="date" min="1990-12-12" max="2020-12-01"></calendar>
       <p>Inline Calendar：{{date}}</p>
       <form-list>
         <form-item>
@@ -17,15 +17,15 @@
           </div>
         </form-item>
       </form-list>
-    </content>
-    <popup :show.sync="showCalendar2" :show-title-bar="false">
-      <calendar :date.sync="date2"></calendar>
+    </Contented>
+    <popup v-model="showCalendar2" :show-title-bar="false" :overlay-close="true">
+      <calendar v-model="date2"></calendar>
     </popup>
   </div>
 </template>
 
 <script>
-import Content from '../components/content'
+import Contented from '../components/content'
 import { SimpleHeader } from '../components/header'
 import Popup from '../components/popup'
 import { Calendar } from '../components/calendar'
@@ -33,7 +33,7 @@ import { Form, FormItem } from '../components/form'
 
 export default {
   components: {
-    Content,
+    Contented,
     SimpleHeader,
     Calendar,
     'form-list': Form,

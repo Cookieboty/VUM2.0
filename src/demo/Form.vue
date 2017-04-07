@@ -53,7 +53,6 @@
               </select>
             </div>
           </div>
-          <!-- Date -->
         </form-item>
         <form-item>
           <div class="item-media">

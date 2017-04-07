@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <simple-header title="Grid" :back-link="true"></simple-header>
-    <Content>
+    <Contented>
       <div class="grid-demo">
         <div class="grids">
           <a href="javascript:;" class="grid">
@@ -157,17 +157,17 @@
 
         </div>
       </div>
-    </Content>
+    </Contented>
   </div>
 </template>
 <script>
 import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 
 export default {
   components: {
     SimpleHeader,
-    Content
+    Contented
   }
 }
 </script>

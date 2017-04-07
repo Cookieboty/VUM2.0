@@ -1,5 +1,5 @@
 <template>
-  <list class="form-list">
+  <List class="form-list">
     <div slot="title">
       <slot name="title"></slot>
     </div>
@@ -7,7 +7,7 @@
     <div slot="append">
       <slot name="append"></slot>
     </div>
-  </list>
+  </List>
 </template>
 
 <script>

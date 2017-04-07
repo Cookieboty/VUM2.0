@@ -1,7 +1,7 @@
 <template>
-  <list-item>
+  <List-item>
     <slot></slot>
-  </list-item>
+  </List-item>
 </template>
 
 <script>

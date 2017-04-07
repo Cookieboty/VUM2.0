@@ -198,16 +198,18 @@
           <p class="grid_label">
             Searchbar
           </p>
-        </a>
-        <a v-link="{ path: 'calendar' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/calendar.png" alt="">
-          </div>
-          <p class="grid_label">
-            Calendar
-          </p>
-        </a>
-        <a v-link="{ path: 'slide' }" class="grid">
+        </a>-->
+        <router-link :to="{ path: 'calendar'}">
+          <a class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/home/calendar.png" alt="">
+            </div>
+            <p class="grid_label">
+              Calendar
+            </p>
+          </a>
+        </router-link>
+        <!--<a v-link="{ path: 'slide' }" class="grid">
           <div class="grid_icon">
             <img src="../assets/images/home/slide.png" alt="">
           </div>
