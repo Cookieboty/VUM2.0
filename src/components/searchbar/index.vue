@@ -18,10 +18,9 @@
 <script>
 export default {
   props: {
-    input: {
+    value: {
       type: String,
-      required: true,
-      twoWay: true
+      required: true
     },
     searchText: {
       type: String,
@@ -34,7 +33,13 @@ export default {
   },
   data () {
     return {
-      focus: false
+      focus: false,
+      input: ''
+    }
+  },
+  created () {
+    if (this.value) {
+      this.input = this.value
     }
   },
   methods: {
@@ -53,6 +58,14 @@ export default {
     },
     clear () {
       this.input = ''
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
+    },
+    input (val) {
+      this.$emit('input', val)
     }
   }
 }

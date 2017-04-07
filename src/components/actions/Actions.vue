@@ -1,8 +1,8 @@
 <template>
-  <popup :show.sync="show" :show-title-bar="false" class-name="actions-modal">
+  <popup v-model='showValue' :overlay-close="overlayClose" class-name="actions-modal">
     <slot></slot>
     <action-group v-if="showCancelButton">
-      <action-button class="color-gray" @click="cancel()">Cancel</action-button>
+      <action-button class="color-gray" @click.native="cancel()">Cancel</action-button>
     </action-group>
   </popup>
 </template>
@@ -14,12 +14,16 @@ import ActionButton from './ActionButton.vue'
 
 export default {
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false,
       required: true
     },
     showCancelButton: {
+      type: Boolean,
+      default: true
+    },
+    overlayClose: {
       type: Boolean,
       default: true
     }
@@ -29,14 +33,27 @@ export default {
     ActionGroup,
     ActionButton
   },
+  data () {
+    return {
+      showValue: false
+    }
+  },
+  created () {
+    if (this.value) {
+      this.showValue = this.value
+    }
+  },
   methods: {
     cancel () {
-      this.show = false
+      this.showValue = false
     }
   },
   watch: {
-    show (val) {
-      console.log(val)
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
     }
   }
 }

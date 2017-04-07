@@ -1,20 +1,20 @@
 <template>
   <div class="page">
     <simple-header title="SearchBar" :back-link="true"></simple-header>
-    <content>
-      <searchbar :input.sync="searchInput"></searchbar>
-    </content>
+    <Contented>
+      <searchbar v-model="searchInput"></searchbar>
+    </Contented>
   </div>
 </template>
 <script>
 import { SimpleHeader } from '../components/header'
-import Content from '../components/content'
+import Contented from '../components/content'
 import Searchbar from '../components/searchbar'
 
 export default {
   components: {
     SimpleHeader,
-    Content,
+    Contented,
     Searchbar
   },
   data () {

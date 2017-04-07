@@ -1,8 +1,9 @@
 @import '../variables.less';
 @import '../mixins.less';
 
-@footer-height:   2.8rem;
+@footer-height: 2.8rem;
 
+// footer bar margin
 // modifier class for footer bars
 .footer {
   background-color: #f7f7f8;
@@ -13,10 +14,6 @@
   .hairline-remove(bottom);
 }
 
-// footer bar margin
-.footer ~ .page-content {
-  bottom: @footer-height;
-}
 // bar docked to bottom and used for primary app navigation
 .footer {
   bottom: 0;
@@ -88,6 +85,10 @@
       }
     }
   }
+}
+
+.footer ~ .page-content {
+  bottom: 2.8rem;
 }
 
 .footer .icon {

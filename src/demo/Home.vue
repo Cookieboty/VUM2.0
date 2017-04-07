@@ -143,16 +143,6 @@
             </p>
           </a>
         </router-link>
-        <!--<router-link :to="{ path: 'tab'}">
-          <a class="grid">
-            <div class="grid_icon">
-              <img src="../assets/images/home/tab.png" alt="">
-            </div>
-            <p class="grid_label">
-              Tab
-            </p>
-          </a>
-        </router-link>-->
         <router-link :to="{ path: 'scroll'}">
           <a class="grid">
             <div class="grid_icon">
@@ -183,64 +173,26 @@
             </p>
           </a>
         </router-link>
-        <!--<a v-link="{ path: 'actions' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/menu.png" alt="">
-          </div>
-          <p class="grid_label">
-            Actions
-          </p>
-        </a>
-        <a v-link="{ path: 'searchbar' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/search.png" alt="">
-          </div>
-          <p class="grid_label">
-            Searchbar
-          </p>
-        </a>-->
-        <router-link :to="{ path: 'calendar'}">
+        <router-link :to="{ path: 'actions'}">
           <a class="grid">
             <div class="grid_icon">
-              <img src="../assets/images/home/calendar.png" alt="">
+              <img src="../assets/images/home/menu.png" alt="">
             </div>
             <p class="grid_label">
-              Calendar
+              Actions
             </p>
           </a>
         </router-link>
-        <!--<a v-link="{ path: 'slide' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/slide.png" alt="">
-          </div>
-          <p class="grid_label">
-            Slide
-          </p>
-        </a>
-        <a v-link="{ path: 'side-panel' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/side.png" alt="">
-          </div>
-          <p class="grid_label">
-            SidePanel
-          </p>
-        </a>
-        <a v-link="{ path: 'menu' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/menu.png" alt="">
-          </div>
-          <p class="grid_label">
-            Menu
-          </p>
-        </a>
-        <a v-link="{ path: 'circle' }" class="grid">
-          <div class="grid_icon">
-            <img src="../assets/images/home/circle.png" alt="">
-          </div>
-          <p class="grid_label">
-            Circle
-          </p>
-        </a>-->
+        <router-link :to="{ path: 'searchbar'}">
+          <a class="grid">
+            <div class="grid_icon">
+              <img src="../assets/images/home/search.png" alt="">
+            </div>
+            <p class="grid_label">
+              Searchbar
+            </p>
+          </a>
+        </router-link>
       </div>
     </Contented>
   </div>
