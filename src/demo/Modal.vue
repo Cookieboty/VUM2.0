@@ -91,6 +91,11 @@ export default {
       this.modal = false
       this.modal2 = false
     }
+  },
+  watch: {
+    alert (val) {
+      console.log(val)
+    }
   }
 }
 </script>

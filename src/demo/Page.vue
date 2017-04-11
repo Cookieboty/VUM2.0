@@ -6,7 +6,7 @@
       <header-title>VUM2.0</header-title>
     </page-header>
     <second-header>
-      <searchbar :input.sync="input"></searchbar>
+      <searchbar v-model="input"></searchbar>
     </second-header>
     <second-footer>
       <btn>dadsa</btn>
